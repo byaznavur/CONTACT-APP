@@ -3,7 +3,7 @@ import { Form, InputGroup } from "react-bootstrap";
 
 export class TodoHeader extends Component {
   render() {
-    const { handleSearch, searchRef } = this.props;
+    const { handleSearch, searchRef, category, handleCategory } = this.props;
     return (
       <InputGroup className="my-3 w-50 m-auto">
         <Form.Control
@@ -12,8 +12,12 @@ export class TodoHeader extends Component {
           placeholder="Search..."
         />
         <InputGroup.Text>
-          <Form.Select aria-label="Default select example">
-            <option>All</option>
+          <Form.Select
+            aria-label="Default select example"
+            onChange={handleCategory}
+            value={category}
+          >
+            <option value="all">All</option>
             <option value="family">Family</option>
             <option value="friends">Friends</option>
             <option value="relatives">Relatives</option>

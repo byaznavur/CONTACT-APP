@@ -2,12 +2,22 @@ import React, { Component } from "react";
 
 export class TodoCard extends Component {
   render() {
-    const { name, surname, isFaforite, number, category } = this.props;
+    const {
+      name,
+      surname,
+      isFavorite,
+      number,
+      category,
+      id,
+      handleFavorite,
+      handleDelete,
+      handleEdit,
+    } = this.props;
 
     return (
       <div
-        className={`w-50 m-auto mb-3 alert d-flex justify-content-between align-items-center alert-${
-          isFaforite ? "danger" : "primary"
+        className={`w-50 m-auto  mb-3 alert d-flex justify-content-between align-items-center flex-wrap alert-${
+          isFavorite ? "danger" : "primary"
         }`}
       >
         <div>
@@ -19,11 +29,20 @@ export class TodoCard extends Component {
         </div>
 
         <div className="d-flex gap-3">
-          <button className="btn btn-primary">Edit</button>
-          {isFaforite ? (
-            <button className="btn btn-danger">Delete</button>
+          <button onClick={() => handleEdit(id)} className="btn btn-primary">
+            Edit
+          </button>
+          {isFavorite ? (
+            <button onClick={() => handleDelete(id)} className="btn btn-danger">
+              Delete
+            </button>
           ) : (
-            <button className="btn btn-warning">Favorite</button>
+            <button
+              onClick={() => handleFavorite(id)}
+              className="btn btn-warning"
+            >
+              Favorite
+            </button>
           )}
         </div>
       </div>
