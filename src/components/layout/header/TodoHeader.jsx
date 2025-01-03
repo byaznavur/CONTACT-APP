@@ -3,9 +3,14 @@ import { Form, InputGroup } from "react-bootstrap";
 
 export class TodoHeader extends Component {
   render() {
+    const { handleSearch, searchRef } = this.props;
     return (
-      <InputGroup className="my-3">
-        <Form.Control placeholder="Search..." />
+      <InputGroup className="my-3 w-50 m-auto">
+        <Form.Control
+          onChange={handleSearch}
+          ref={searchRef}
+          placeholder="Search..."
+        />
         <InputGroup.Text>
           <Form.Select aria-label="Default select example">
             <option>All</option>

@@ -3,8 +3,9 @@ import { Button, Form } from "react-bootstrap";
 
 export class TodoForm extends Component {
   render() {
+    const { submit } = this.props;
     return (
-      <Form noValidate className="w-50 m-auto">
+      <Form onSubmit={submit} noValidate className="w-50 m-auto">
         <Form.Group className="mb-3" controlId="name">
           <Form.Label>Name</Form.Label>
           <Form.Control required type="text" placeholder="Name" />
